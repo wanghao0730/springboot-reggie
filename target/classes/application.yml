@@ -1,0 +1,38 @@
+#配置spring的内容
+spring:
+  #应用的名称
+  application:
+    name: reggie_talk_out
+    #数据库连接的配置因为我们使用了druid连接池所以可以直接配置druid
+  datasource:
+    druid:
+      #连接mysql8安全协议需要增加一些参数
+      url: jdbc:mysql://localhost:3306/reggie?characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+      username: root
+      password: wanghao31
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    # SMTP 服务器 host  qq邮箱的为 smtp.qq.com 端口 465 587
+    host: smtp.qq.com
+    #用户名自己的qq邮箱
+    username: 1149243584@qq.com
+    #填写授权码
+    password: izpitneemvhkgadi
+    #编码设置
+    default-encoding: UTF-8
+#监听端口配置
+server:
+  port: 8081
+#mp的配置
+mybatis-plus:
+  configuration:
+    #数据库与实体类的驼峰映射转换
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: assign_id
+#自定义配置
+reggie:
+  #文件上传后转存的位置
+  path: D:\img\
